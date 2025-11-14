@@ -28,7 +28,7 @@ public class DashboardActivity extends AppCompatActivity {
 
     private void initViews() {
         logoutBtn = findViewById(R.id.logoutBtn);
-        addExcerciseBtn = findViewById(R.id.addExcerciseBtn);
+        addExcerciseBtn = findViewById(R.id.addNewExcerciseBtn);
     }
 
     private void setupListeners() {

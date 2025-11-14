@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/addExcerciseBtn"
+        android:id="@+id/addNewExcerciseBtn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="18sp"
