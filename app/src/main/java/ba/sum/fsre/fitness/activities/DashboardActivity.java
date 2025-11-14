@@ -1,10 +1,12 @@
-package ba.sum.fsre.fitness;
+package ba.sum.fsre.fitness.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class Dashboard extends AppCompatActivity {
+import ba.sum.fsre.fitness.R;
+
+public class DashboardActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

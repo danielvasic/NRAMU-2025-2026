@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    tools:context=".activities.RegisterActivity">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ProgressBar
+            android:id="@+id/registerProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/usernameTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12sp"
+            android:background="@drawable/input_background"
+            android:ems="10"
+            android:hint="Unesite Vaše ime"
+            android:inputType="text"
+            android:padding="16sp"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/emailTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12sp"
+            android:background="@drawable/input_background"
+            android:ems="10"
+            android:hint="Unesite Vašu email adresu"
+            android:inputType="textEmailAddress"
+            android:padding="16sp"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/passwordTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12sp"
+            android:background="@drawable/input_background"
+            android:ems="10"
+            android:hint="Unesite Vašu lozinku"
+            android:inputType="textPassword"
+            android:padding="16sp" />
+
+        <EditText
+            android:id="@+id/passwordCnfTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12sp"
+            android:background="@drawable/input_background"
+            android:ems="10"
+            android:hint="Unesite Vašu lozinku"
+            android:inputType="textPassword"
+            android:padding="16sp" />
+
+        <Button
+            android:id="@+id/registerBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16sp"
+            android:backgroundTint="#4CAF50"
+            android:padding="16sp"
+            android:text="Registriraj se"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/backToLoginBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32sp"
+            android:padding="16sp"
+            android:text="Prijavi se"
+            android:textSize="18sp" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

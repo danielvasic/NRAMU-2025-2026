@@ -1,6 +1,6 @@
-package ba.sum.fsre.fitness;
+package ba.sum.fsre.fitness.models.request;
 
-public class LoginRequest {
+public class LoginRequest extends BaseRequest {
     private String email;
     private String password;
 

@@ -1,4 +1,4 @@
-package ba.sum.fsre.fitness;
+package ba.sum.fsre.fitness.models.response;
 
 import com.google.gson.annotations.SerializedName;
 
