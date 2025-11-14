@@ -1,53 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
+    android:orientation="vertical"
     tools:context=".activities.ExcerciseActivity">
 
-    <LinearLayout
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:padding="15sp"
+        android:text="Dodaj vježbu"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="15sp"
-            android:text="Dodaj vježbu"
-            android:textAlignment="center"
-            android:textSize="34sp"
-            android:textStyle="bold" />
+    <EditText
+        android:id="@+id/excerciseNameTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Unesite naziv vježbe"
+        android:inputType="text" />
 
-        <EditText
-            android:id="@+id/excerciseNameTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Unesite naziv vježbe"
-            android:inputType="text" />
+    <EditText
+        android:id="@+id/excerciseDescTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Unesite opis vježbe"
+        android:inputType="textMultiLine"
+        android:lines="4" />
 
-        <EditText
-            android:id="@+id/excerciseDescTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="start|top"
-            android:hint="Unesite opis vježbe"
-            android:inputType="textMultiLine"
-            android:lines="4" />
+    <Button
+        android:id="@+id/addNewExcerciseBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dodaj vježbu" />
 
-        <Button
-            android:id="@+id/addNewExcerciseBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Dodaj vježbu" />
-
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
