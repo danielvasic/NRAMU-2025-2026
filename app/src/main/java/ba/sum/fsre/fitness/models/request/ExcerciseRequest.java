@@ -8,9 +8,6 @@ public class ExcerciseRequest {
 
     private String description;
 
-    @SerializedName("created_at")
-    private String createdAt;
-
 
     public ExcerciseRequest(String name, String description) {
         this.name = name;
