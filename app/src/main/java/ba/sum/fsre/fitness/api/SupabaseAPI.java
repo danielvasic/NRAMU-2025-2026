@@ -10,6 +10,7 @@ import ba.sum.fsre.fitness.models.response.AuthResponse;
 import ba.sum.fsre.fitness.models.response.ExcerciseResponse;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
@@ -26,10 +27,17 @@ public interface SupabaseAPI {
     Call<AuthResponse> signup(@Body RegisterRequest request);
 
 
-    @Headers("Content-Type: application/json")
+    @Headers({"Content-Type: application/json", "Prefer: return=representation"})
     @POST("rest/v1/excercise")
     Call<List<Excercise>> createExcercise (
             @Header("Authorization") String token,
             @Body ExcerciseRequest request
     );
+
+    @GET("rest/v1/excercise")
+    Call<List<Excercise>> getAll (
+            @Header("Authorization") String token
+    );
+
+
 }

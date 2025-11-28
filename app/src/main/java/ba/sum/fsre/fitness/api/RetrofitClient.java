@@ -2,6 +2,7 @@ package ba.sum.fsre.fitness.api;
 
 import ba.sum.fsre.fitness.utils.Constants;
 import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -10,6 +11,9 @@ public class RetrofitClient {
     private SupabaseAPI api;
 
     private RetrofitClient() {
+        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+
         OkHttpClient client = new OkHttpClient.Builder()
                 .addInterceptor(chain -> chain.proceed(
                         chain.request().newBuilder()
@@ -17,6 +21,7 @@ public class RetrofitClient {
                                 .addHeader("Content-Type", "application/json")
                                 .build()
                 ))
+                .addInterceptor(logging)
                 .build();
 
         Retrofit retrofit = new Retrofit.Builder()

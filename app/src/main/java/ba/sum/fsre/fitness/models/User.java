@@ -1,4 +1,4 @@
-package ba.sum.fsre.fitness.models.response;
+package ba.sum.fsre.fitness.models;
 
 public class User {
     private String id;

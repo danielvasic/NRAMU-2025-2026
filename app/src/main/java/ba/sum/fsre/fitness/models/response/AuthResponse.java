@@ -2,6 +2,8 @@ package ba.sum.fsre.fitness.models.response;
 
 import com.google.gson.annotations.SerializedName;
 
+import ba.sum.fsre.fitness.models.User;
+
 public class AuthResponse extends BaseResponse {
     @SerializedName("access_token")
     private String accessToken;
