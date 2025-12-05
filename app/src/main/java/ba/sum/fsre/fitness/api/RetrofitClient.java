@@ -18,7 +18,6 @@ public class RetrofitClient {
                 .addInterceptor(chain -> chain.proceed(
                         chain.request().newBuilder()
                                 .addHeader("apikey", Constants.ANON_KEY)
-                                .addHeader("Content-Type", "application/json")
                                 .build()
                 ))
                 .addInterceptor(logging)

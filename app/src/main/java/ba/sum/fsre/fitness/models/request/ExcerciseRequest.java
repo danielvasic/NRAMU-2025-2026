@@ -8,10 +8,14 @@ public class ExcerciseRequest {
 
     private String description;
 
+    @SerializedName("image_url")
+    private String imageUrl;
 
-    public ExcerciseRequest(String name, String description) {
+
+    public ExcerciseRequest(String name, String description, String imageUrl) {
         this.name = name;
         this.description = description;
+        this.imageUrl = imageUrl;
     }
 
     public String getName() {
@@ -21,4 +25,7 @@ public class ExcerciseRequest {
     public String getDescription() {
         return description;
     }
+
+    public String getImageUrl() { return imageUrl; }
+    public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
 }

@@ -10,13 +10,17 @@ public class Excercise {
 
     private String description;
 
+    @SerializedName("image_url")
+    private String imageUrl;
+
     @SerializedName("created_at")
     private String createdAt;
 
-    public Excercise(String id, String name, String description) {
+    public Excercise(String id, String name, String description, String imageUrl) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.imageUrl = imageUrl;
     }
 
     public String getId() {
@@ -29,6 +33,10 @@ public class Excercise {
 
     public String getDescription() {
         return description;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
     }
 
 }

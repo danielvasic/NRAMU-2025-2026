@@ -7,10 +7,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -92,17 +95,27 @@ public class DashboardActivity extends AppCompatActivity {
                             HashMap<String, String> item = new HashMap<>();
                             item.put("name", e.getName());
                             item.put("description", e.getDescription());
+                            item.put("image", e.getImageUrl());
                             data.add(item);
                         }
 
-                        String [] from = {"name", "description"};
-                        int [] to = {R.id.textView2, R.id.textView3};
+                        String [] from = {"name", "description", "image"};
+                        int [] to = {R.id.textView2, R.id.textView3, R.id.itemImage};
 
                         SimpleAdapter adapter = new SimpleAdapter(
                                 DashboardActivity.this,
                                 data, R.layout.listview_item,
                                 from, to
                         );
+
+                        adapter.setViewBinder((view, data1, text) -> {
+                            if (view.getId() == R.id.itemImage) {
+                                String url = (String) data1;
+                                Picasso.get().load(url).into((ImageView) view);
+                                return true;
+                            }
+                            return false;
+                        });
 
                         workoutListView.setAdapter(adapter);
 
