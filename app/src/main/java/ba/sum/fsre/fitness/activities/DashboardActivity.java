@@ -37,6 +37,9 @@ public class DashboardActivity extends AppCompatActivity {
 
     ListView workoutListView;
 
+    // Globalna lista vježbi - potrebna za klik na stavku
+    private List<Excercise> globalExerciseList = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +51,12 @@ public class DashboardActivity extends AppCompatActivity {
         initViews();
         setupListeners();
 
+        // Prvo punjenje liste vježbi
+        fetchExercises();
+    }
+
+    // Metoda za dohvaćanje vježbi - može se pozivati više puta
+    private void fetchExercises() {
         this.workoutProgress.setVisibility(View.VISIBLE);
 
         // Use Bearer <token> for Authorization (Supabase expects Bearer token)
@@ -88,6 +97,9 @@ public class DashboardActivity extends AppCompatActivity {
                             workoutProgress.setVisibility(View.INVISIBLE);
                             return;
                         }
+
+                        // Spremamo u globalnu listu
+                        globalExerciseList = excerciseList;
 
                         List<HashMap<String, String>> data = new ArrayList<>();
 
@@ -140,6 +152,13 @@ public class DashboardActivity extends AppCompatActivity {
             });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Osvježi listu čim se vratimo na ovaj ekran!
+        fetchExercises();
+    }
+
     private void initViews() {
         logoutBtn = findViewById(R.id.logoutBtn);
         addExcerciseBtn = findViewById(R.id.addNewExcerciseBtn);
@@ -165,6 +184,23 @@ public class DashboardActivity extends AppCompatActivity {
                             ExcerciseActivity.class
                     )
             );
+        });
+
+        // Postavljanje klika na stavku liste
+        workoutListView.setOnItemClickListener((parent, view, position, id) -> {
+            // Dohvaćamo odabranu vježbu iz globalne liste
+            Excercise selected = globalExerciseList.get(position);
+
+            // Kreiramo Intent za prelazak na EditExerciseActivity
+            Intent intent = new Intent(DashboardActivity.this, EditExerciseActivity.class);
+
+            // Šaljemo podatke na novi ekran
+            intent.putExtra("id", String.valueOf(selected.getId()));
+            intent.putExtra("name", selected.getName());
+            intent.putExtra("desc", selected.getDescription());
+            intent.putExtra("image", selected.getImageUrl());
+
+            startActivity(intent);
         });
     }
 }
